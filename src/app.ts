@@ -13,4 +13,9 @@ app.get('/', async (req, res) => {
 
 app.use('/api', bookRouter);
 
+// Unknown route handler
+app.use((req, res) => {
+  res.status(404).json(createGenericError('Route not found', 'NotFoundError'));
+});
+
 export default app;

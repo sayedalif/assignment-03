@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const bookRoutes_1 = __importDefault(require("./routes/bookRoutes"));
+const utils_1 = require("./utils/utils");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -22,4 +23,8 @@ app.get('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     });
 }));
 app.use('/api', bookRoutes_1.default);
+// Unknown route handler
+app.use((req, res) => {
+    res.status(404).json((0, utils_1.createGenericError)('Route not found', 'NotFoundError'));
+});
 exports.default = app;
