@@ -596,5 +596,8 @@ router.post('/borrow', borrowBook);
 router.get('/borrow', borrowBookSummary);
 
 export default router;
-
 ```
+
+# to run the project-
+
+first we need to install all the dependencies then we need to install using npm i then we can run the project using npm run dev to run it in development mode or npm start to start the production build server.
